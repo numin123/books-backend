@@ -32,9 +32,12 @@ gem "redis", ">= 4.0.1"
 gem 'grape'
 gem 'grape-swagger'
 gem 'grape-entity'
+gem 'grape-attack'
 
 gem 'rack-cors'
 gem 'jwt'
+gem 'bcrypt', '~> 3.1.7'
+gem 'dotenv'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
