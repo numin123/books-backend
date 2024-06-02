@@ -1,5 +1,8 @@
 class Books < Grape::API
+  use Grape::Attack::Throttle
   resource :books do
+    before { authenticate! }
+
     desc 'Get all books'
     get do
       Book.all

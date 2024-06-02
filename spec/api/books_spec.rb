@@ -1,12 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Books, type: :request do
+  before do
+    Base.helpers { def authenticate!;true;end }
+ end
+
   describe 'POST /api/books' do
     let(:valid_attributes) do
       {
         title: 'Test Book',
         short_description: 'This is a short description',
-        full_description: 'This is a full description'
+        full_description: 'This is a full description',
+        author: 'This is a author'
       }
     end
 
@@ -18,6 +23,7 @@ RSpec.describe Books, type: :request do
         expect(json['title']).to eq('Test Book')
         expect(json['short_description']).to eq('This is a short description')
         expect(json['full_description']).to eq('This is a full description')
+        expect(json['author']).to eq('This is a author')
       end
     end
 
@@ -31,6 +37,7 @@ RSpec.describe Books, type: :request do
       it 'returns a validation failure message' do
         expect(response.body).to match(/short_description is missing/)
         expect(response.body).to match(/full_description is missing/)
+        expect(response.body).to match(/author is missing/)
       end
     end
   end

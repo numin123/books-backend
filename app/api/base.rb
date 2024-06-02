@@ -1,3 +1,5 @@
+require 'grape'
+
 class Base < Grape::API
   prefix 'api'
   format :json
@@ -12,15 +14,19 @@ class Base < Grape::API
     end
 
     def current_user
-      @current_user ||= User.find_by(id: decoded_token['user_id']) if decoded_token
+      @current_user ||= User.find_by(id: decoded_token.first["user_id"]) if decoded_token
     end
 
     def decoded_token
-      @decoded_token ||= JWT.decode(token, Rails.application.secrets.jwt_secret_key, true, algorithm: 'HS256') rescue nil
+      @decoded_token ||= JWT.decode(token, secret_key, true, algorithm: 'HS256') rescue nil
     end
 
     def token
-      @token ||= request.headers['Authorization']&.split&.last
+      @token ||= request.headers["authorization"]&.split&.last
+    end
+
+    def secret_key
+      @secret_key ||= ENV['JWT_SECRET_KEY']
     end
   end
 

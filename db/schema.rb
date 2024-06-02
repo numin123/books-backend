@@ -15,15 +15,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_02_074405) do
     t.string "title"
     t.string "short_description"
     t.text "full_description"
+    t.string "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "author"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "uid"
     t.string "email"
     t.string "name"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
