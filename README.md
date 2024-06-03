@@ -24,7 +24,7 @@ Here are the steps to set up the environment:
 
 2. **Navigate to the directory**
     ```
-    cd books-backend-app
+    cd books-backend
     ```
 
 3. **Install dependencies**
