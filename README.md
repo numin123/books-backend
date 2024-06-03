@@ -47,3 +47,5 @@ Here are the steps to set up the environment:
     ```
 
 Now, you should be able to see the application running at `localhost:3000` in your web browser.
+
+Books frontend repository https://github.com/numin123/books-frontend
