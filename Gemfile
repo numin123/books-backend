@@ -32,7 +32,8 @@ gem "redis", ">= 4.0.1"
 gem 'grape'
 gem 'grape-swagger'
 gem 'grape-entity'
-gem 'grape-attack'
+gem 'rack-attack'
+
 
 gem 'rack-cors'
 gem 'jwt'

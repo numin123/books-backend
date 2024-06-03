@@ -26,5 +26,7 @@ module BooksBackend
     # config.eager_load_paths << Rails.root.join("extras")
 
     Dotenv.load if defined?(Dotenv)
+
+    config.middleware.use Rack::Attack
   end
 end

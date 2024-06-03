@@ -1,5 +1,4 @@
 class Books < Grape::API
-  use Grape::Attack::Throttle
   resource :books do
     before { authenticate! }
 

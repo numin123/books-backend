@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Books, type: :request do
   before do
     Base.helpers { def authenticate!;true;end }
- end
+  end
 
   describe 'POST /api/books' do
     let(:valid_attributes) do
